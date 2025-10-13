@@ -19,6 +19,6 @@ samples, guidance on mobile development, and a full API reference.
 ## Borrador de notas finales
 
 - La capa de presentación maneja los textos fijos desde un archivo centralizado, preparado para escalar a localización (i18n) con Flutter gen_l10n
- 
+- Se hace uso de Windsurf para generar los archivos de localización
 
 

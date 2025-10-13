@@ -17,6 +17,7 @@ dependencies:
   flutter_riverpod: ^3.0.3
   freezed: ^3.2.3
   go_router: ^16.2.4
+  intl: any
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -24,13 +25,13 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
+  generate: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/icons/
     - assets/images/logos/
+
 
   # fonts:
   #   - family: Schyler
