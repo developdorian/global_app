@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:global_app/app/router.dart';
+import 'package:global_app/app/theme/app_theme.dart';
 
 import 'localization/l10n/app_localizations.dart';
-import 'router.dart';
 // import 'theme/app_theme.dart';
 
 class App extends StatelessWidget {
@@ -12,8 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Pokedex Global App',
-      // TODO: Configurar el tema personalizado de la app
-      theme: ThemeData(useMaterial3: true),
+      theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       localizationsDelegates: const [
@@ -22,10 +22,8 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'),
-        Locale('es'),
-      ],
+      locale: const Locale('es'),
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

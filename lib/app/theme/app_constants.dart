@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
+
 class AppConstants {
 
   // Images
   static const String pokeballSplashImage = "assets/images/logos/poke_loader.png";
   static const String magikarpImage = "assets/images/logos/magikarp.png";
-  static const String character1Image = "assets/images/logos/pj_1.png";
-  static const String character2Image = "assets/images/logos/pj_2.png";
+  static const String character1Image = "assets/images/logos/pj_2.png";
+  static const String character2Image = "assets/images/logos/pj_1.png";
   static const String jigglypuffImage = "assets/images/logos/jigglypuff.png";
 
   // Logos
@@ -31,7 +33,26 @@ class AppConstants {
   static const String heartLogo = "assets/images/icons/Heart.svg";
   static const String heartSolidLogo = "assets/images/icons/HeartSolid.svg";
 
-  // Colors
+  // Colors cards pokemon
+  static const Color kWaterColor = Color(0xFF2196F3);
+  static const Color kFireColor = Color(0xFFFF9800);
+  static const Color kGrassColor = Color(0xFF8BC34A);
+  static const Color kElectricColor = Color(0xFFFDD835);
+  static const Color kIceColor = Color(0xFF3D8BFF);
+  static const Color kFairyColor = Color(0xFFE91E63);
+  static const Color kSteelColor = Color(0xFF546E7A);
+  static const Color kDragonColor = Color(0xFF00ACC1);
+  static const Color kDarkColor = Color(0xFF546E7A);
+  static const Color kFightingColor = Color(0xFFE53935);
+  static const Color kGroundColor = Color(0xFFFFB300);
+  static const Color kPsychicColor = Color(0xFF673AB7);
+  static const Color kRockColor = Color(0xFF795548);
+  static const Color kBugColor = Color(0xFF43A047);
+  static const Color kPoisonColor = Color(0xFF9C27B0);
+  static const Color kGhostColor = Color(0xFF8E24AA);
+  static const Color kFlyingColor = Color(0xFF00BCD4);
+  static const Color kNormalColor = Color(0xFF546E7A);
+  static const Color kUnknownColor = Color(0xFF546E7A);
 
 
 
