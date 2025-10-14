@@ -7,9 +7,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       name: 'splash',
-      builder: (context, state) {
-        return const SplashScreen();
-      },
+      builder: (context, state) => const SplashScreen(),
     ),
 
     /// Ruta de la lista de Pokemons
