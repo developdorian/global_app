@@ -4,7 +4,6 @@ import 'package:global_app/app/router.dart';
 import 'package:global_app/app/theme/app_theme.dart';
 
 import 'localization/l10n/app_localizations.dart';
-// import 'theme/app_theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

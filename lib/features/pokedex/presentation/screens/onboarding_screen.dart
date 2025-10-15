@@ -57,9 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 decoration: BoxDecoration(
                   color: _currentPage == index
                       ? AppTheme.lightTheme.colorScheme.tertiary
-                      : AppTheme.lightTheme.colorScheme.onSecondary.withValues(
-                          alpha: 0.25,
-                        ),
+                      : AppTheme.lightTheme.colorScheme.onSecondary.withOpacity(0.25),
                   borderRadius: BorderRadius.circular(4),
                 ),
               ),

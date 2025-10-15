@@ -7,7 +7,7 @@ void main() async {
   
   runApp(
     const ProviderScope(
-      child: App(), // 👈 Va al siguiente nivel
+      child: App(),
     ),
   );
 }

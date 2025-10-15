@@ -32,6 +32,8 @@ class AppConstants {
 
   static const String heartLogo = "assets/images/icons/Heart.svg";
   static const String heartSolidLogo = "assets/images/icons/HeartSolid.svg";
+  static const String heartBasicFavLogo = "assets/images/icons/heart_basic_fav.svg";
+  static const String heartRedFavLogo = "assets/images/icons/heart_red_fav.svg";
 
   static const String homeLogo = "assets/images/icons/home.svg";
   static const String regionLogo = "assets/images/icons/region.svg";
@@ -59,7 +61,4 @@ class AppConstants {
   static const Color kNormalColor = Color(0xFF546E7A);
   static const Color kUnknownColor = Color(0xFF546E7A);
 
-
-
-  
 }

@@ -58,10 +58,8 @@ class AppTheme {
         ),
       ),
 
-      // Scaffold
       scaffoldBackgroundColor: AppColors.surface,
 
-      // AppBar
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
         foregroundColor: AppColors.textPrimary,
@@ -75,7 +73,6 @@ class AppTheme {
         ),
       ),
 
-      // Usar el textTheme independiente
       textTheme: textTheme,
     );
   }
@@ -134,8 +131,8 @@ class AppTheme {
       bodySmall: TextStyle(
         fontFamily: _fontFamily,
         fontSize: 12,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textPrimary.withValues(alpha: 0.7),
+        fontWeight: FontWeight.w600,
+        color: AppColors.textPrimary.withOpacity(0.8),
       ),
       labelLarge: TextStyle(
         fontFamily: _fontFamily,
