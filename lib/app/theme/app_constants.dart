@@ -33,6 +33,11 @@ class AppConstants {
   static const String heartLogo = "assets/images/icons/Heart.svg";
   static const String heartSolidLogo = "assets/images/icons/HeartSolid.svg";
 
+  static const String homeLogo = "assets/images/icons/home.svg";
+  static const String regionLogo = "assets/images/icons/region.svg";
+  static const String profileLogo = "assets/images/icons/profile.svg";
+  static const String heartTabLogo = "assets/images/icons/heart_tab.svg";
+
   // Colors cards pokemon
   static const Color kWaterColor = Color(0xFF2196F3);
   static const Color kFireColor = Color(0xFFFF9800);

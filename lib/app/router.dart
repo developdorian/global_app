@@ -18,6 +18,12 @@ final GoRouter router = GoRouter(
     ),
 
     GoRoute(
+      path: '/primary',
+      name: 'primary_screen',
+      builder: (context, state) => const PrimaryScreen(),
+    ),
+
+    GoRoute(
       path: '/onboarding',
       name: 'onboarding',
       builder: (context, state) => const OnboardingScreen(),

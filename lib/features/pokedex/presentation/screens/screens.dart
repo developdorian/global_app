@@ -5,3 +5,5 @@ export 'package:global_app/features/pokedex/presentation/screens/onboarding_scre
 export 'package:global_app/features/pokedex/presentation/screens/pokedex_screen.dart';
 export 'package:global_app/features/pokedex/presentation/screens/regions_screen.dart';
 export 'package:global_app/features/pokedex/presentation/screens/splash_screen.dart';
+export 'package:global_app/features/pokedex/presentation/screens/primary_screen.dart';
+export 'package:global_app/features/pokedex/presentation/screens/profile_screen.dart';

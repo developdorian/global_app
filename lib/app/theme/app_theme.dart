@@ -10,7 +10,9 @@ class AppColors {
   static const Color error = Color(0xFFEF4444);        // Rojo coral
   static const Color info = Color(0xFF4565B7);         
   static const Color surface = Colors.white;      
-  static const Color textPrimary = Color(0xFF1E293B);  // Gris oscuro slate
+  static const Color textPrimary = Color(0xFF1E293B);  
+  static const Color textSecondary = Color(0xFF0D47A1);  
+  static const Color textTertiary = Color(0xFF424242);  
 
   
   AppColors._();
@@ -37,6 +39,23 @@ class AppTheme {
         onSecondary: AppColors.info,
         onSurface: AppColors.textPrimary,
         onPrimaryContainer: AppColors.success,
+      ),
+
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: AppColors.textSecondary,
+        unselectedItemColor: AppColors.textTertiary,
+        selectedLabelStyle: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: AppColors.textSecondary,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontFamily: _fontFamily,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: AppColors.textTertiary,
+        ),
       ),
 
       // Scaffold
