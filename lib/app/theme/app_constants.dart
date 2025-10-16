@@ -61,4 +61,80 @@ class AppConstants {
   static const Color kNormalColor = Color(0xFF546E7A);
   static const Color kUnknownColor = Color(0xFF546E7A);
 
+  static const Map<String, Color> pokemonTypeColors = {
+    'water': kWaterColor,
+    'fire': kFireColor,
+    'grass': kGrassColor,
+    'electric': kElectricColor,
+    'ice': kIceColor,
+    'fairy': kFairyColor,
+    'steel': kSteelColor,
+    'dragon': kDragonColor,
+    'dark': kDarkColor,
+    'fighting': kFightingColor,
+    'ground': kGroundColor,
+    'psychic': kPsychicColor,
+    'rock': kRockColor,
+    'bug': kBugColor,
+    'poison': kPoisonColor,
+    'ghost': kGhostColor,
+    'flying': kFlyingColor,
+    'normal': kNormalColor,
+  };
+
+  static const Map<String, String> pokemonTypeLogos = {
+    'water': waterLogo,
+    'fire': fireLogo,
+    'grass': grassLogo,
+    'electric': electricLogo,
+    'ice': iceLogo,
+    'fairy': fairyLogo,
+    'steel': steelLogo,
+    'dragon': dragonLogo,
+    'dark': darkLogo,
+    'fighting': fightingLogo,
+    'ground': groundLogo,
+    'psychic': psychicLogo,
+    'rock': rockLogo,
+    'bug': bugLogo,
+    'poison': poisonLogo,
+    'ghost': ghostLogo,
+    'flying': flyingLogo,
+    'normal': normalLogo,
+  };
+
+  static const Map<String, String> pokemonTypeTranslations = {
+    'normal': 'Normal',
+    'fire': 'Fuego',
+    'water': 'Agua',
+    'electric': 'Eléctrico',
+    'grass': 'Planta',
+    'ice': 'Hielo',
+    'fighting': 'Lucha',
+    'poison': 'Veneno',
+    'ground': 'Tierra',
+    'flying': 'Volador',
+    'psychic': 'Psíquico',
+    'bug': 'Bicho',
+    'rock': 'Roca',
+    'ghost': 'Fantasma',
+    'dragon': 'Dragón',
+    'dark': 'Siniestro',
+    'steel': 'Acero',
+    'fairy': 'Hada',
+  };
+
+  // Helper methods to get color, logo and translation of type
+  static Color getTypeColor(String type) {
+    return pokemonTypeColors[type.toLowerCase()] ?? kUnknownColor;
+  }
+
+  static String getTypeLogo(String type) {
+    return pokemonTypeLogos[type.toLowerCase()] ?? unknownLogo;
+  }
+
+  static String getTypeTranslation(String type) {
+    return pokemonTypeTranslations[type.toLowerCase()] ?? type;
+  }
+
 }
