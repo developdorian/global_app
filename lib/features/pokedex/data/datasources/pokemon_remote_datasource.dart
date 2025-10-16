@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:global_app/features/pokedex/data/models/pokemon_model.dart';
+import 'package:global_app/features/pokedex/data/models/pokemon_detail_model.dart';
 
 class PokemonRemoteDataSource {
   final Dio dio;
@@ -17,5 +18,13 @@ class PokemonRemoteDataSource {
         .toList();
 
     return results;
+  }
+
+  Future<PokemonDetailModel> fetchPokemonDetail(String name) async {
+    final response = await dio.get(
+      'https://pokeapi.co/api/v2/pokemon/$name',
+    );
+
+    return PokemonDetailModel.fromJson(response.data);
   }
 }
