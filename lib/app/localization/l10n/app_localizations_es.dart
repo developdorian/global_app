@@ -55,6 +55,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get filterResult2 => 'resultados';
 
   @override
+  String get filterSearchBar => 'Procurar Pokémon...';
+
+  @override
   String get detailPokemonWeight => 'Peso';
 
   @override
@@ -74,6 +77,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get detailPokemonWeakness => 'Debilidades';
+
+  @override
+  String get profileTitle => 'Idioma';
+
+  @override
+  String get profileDescription => 'Selecciona el idioma en el que deseas ver la aplicación';
 
   @override
   String get tabbarPokedex => 'Pokédex';

@@ -191,6 +191,12 @@ abstract class AppLocalizations {
   /// **'results'**
   String get filterResult2;
 
+  /// No description provided for @filterSearchBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Catch Pokémon...'**
+  String get filterSearchBar;
+
   /// No description provided for @detailPokemonWeight.
   ///
   /// In en, this message translates to:
@@ -232,6 +238,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Weakness'**
   String get detailPokemonWeakness;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get profileTitle;
+
+  /// No description provided for @profileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the language in which you want to see the application'**
+  String get profileDescription;
 
   /// No description provided for @tabbarPokedex.
   ///

@@ -21,6 +21,7 @@
     "filterDelete": "Borrar filtro",
     "filterResult": "Se han encontrado",
     "filterResult2": "resultados",
+    "filterSearchBar": "Procurar Pokémon...",
 
     "detailPokemonWeight": "Peso",
     "detailPokemonHeight": "Altura",
@@ -29,6 +30,9 @@
     "detailPokemonMoves": "Movimientos",
     "detailPokemonGender": "Genero",
     "detailPokemonWeakness": "Debilidades",
+
+    "profileTitle": "Idioma",
+    "profileDescription": "Selecciona el idioma en el que deseas ver la aplicación",
     
     "tabbarPokedex": "Pokédex",
     "tabbarFavorite": "Favoritos",

@@ -21,6 +21,7 @@
     "filterDelete": "Delete filter",
     "filterResult": "Found",
     "filterResult2": "results",
+    "filterSearchBar": "Catch Pokémon...",
 
     "detailPokemonWeight": "Weight",
     "detailPokemonHeight": "Height",
@@ -28,8 +29,11 @@
     "detailPokemonAbilities": "Abilities",
     "detailPokemonMoves": "Moves",
     "detailPokemonGender": "Gender",
-    "detailPokemonWeakness": "Weakness",    
-    
+    "detailPokemonWeakness": "Weakness",
+
+    "profileTitle": "Language",
+    "profileDescription": "Select the language in which you want to see the application",
+      
     "tabbarPokedex": "Pokédex",
     "tabbarFavorite": "Favorites",
     "tabbarProfile": "Profile",
