@@ -40,6 +40,11 @@ class AppConstants {
   static const String profileLogo = "assets/images/icons/profile.svg";
   static const String heartTabLogo = "assets/images/icons/heart_tab.svg";
 
+  static const String pokeballLogo = "assets/images/icons/pokeball.svg";
+  static const String categoryLogo = "assets/images/icons/category.svg";
+  static const String heightLogo = "assets/images/icons/height_icon.svg";
+  static const String weightLogo = "assets/images/icons/weight_icon.svg";
+  
   // Colors cards pokemon
   static const Color kWaterColor = Color(0xFF2196F3);
   static const Color kFireColor = Color(0xFFFF9800);
@@ -60,6 +65,8 @@ class AppConstants {
   static const Color kFlyingColor = Color(0xFF00BCD4);
   static const Color kNormalColor = Color(0xFF546E7A);
   static const Color kUnknownColor = Color(0xFF546E7A);
+
+  static const Color kDividerColor = Color(0xFFE0E0E0);
 
   static const Map<String, Color> pokemonTypeColors = {
     'water': kWaterColor,
