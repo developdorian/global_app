@@ -25,6 +25,8 @@ samples, guidance on mobile development, and a full API reference.
 - Cuando el dispositivo se encuentra sin conexión, se muestra una pantalla de error con un botón para intentar de nuevo. Una vez que se recupera la conexión, se vuelve a cargar la pantalla de la Pokédex con la lista de pokemons.
 - Se implementa un algoritmo predictivo para las debilidades de los pokemons. (Ayuda de Claude) 
 - Se implementa un sistema de favoritos con Hive para guardar los pokemons favoritos en el dispositivo. (Ayuda de Claude) 
+- Se implementa un sistema de búsqueda con filtros para los pokemons.
+- Se implementa skeleton loading en el listado de pokemons.
 
 
 

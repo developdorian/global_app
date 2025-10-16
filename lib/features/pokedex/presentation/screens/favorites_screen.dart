@@ -7,7 +7,6 @@ import 'package:global_app/app/theme/app_theme.dart';
 import 'package:global_app/core/utils/string_utils.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_detail_entity.dart';
 import 'package:global_app/features/pokedex/presentation/providers/favorites_provider.dart';
-import 'package:global_app/features/pokedex/presentation/screens/detail_screen.dart';
 import 'package:global_app/features/pokedex/presentation/widgets/elements_widget.dart';
 
 class FavoritesScreen extends ConsumerWidget {
@@ -18,24 +17,29 @@ class FavoritesScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final favoritesAsync = ref.watch(favoritesStreamProvider);
 
-    return favoritesAsync.when(
-      data: (favorites) {
-        if (favorites.isEmpty) {
-          return _buildEmptyState(l10n);
-        }
-        return ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          itemCount: favorites.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemBuilder: (context, index) {
-            final pokemon = favorites[index];
-            return _FavoriteCard(pokemon: pokemon);
-          },
-        );
-      },
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, stackTrace) => Center(
-        child: Text('Error: ${error.toString()}'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.tabbarFavorite),
+      ),
+      body: favoritesAsync.when(
+        data: (favorites) {
+          if (favorites.isEmpty) {
+            return _buildEmptyState(l10n);
+          }
+          return ListView.separated(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            itemCount: favorites.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            itemBuilder: (context, index) {
+              final pokemon = favorites[index];
+              return _FavoriteCard(pokemon: pokemon);
+            },
+          );
+        },
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stackTrace) => Center(
+          child: Text('Error: ${error.toString()}'),
+        ),
       ),
     );
   }
