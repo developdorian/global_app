@@ -14,11 +14,30 @@ class PrimaryScreen extends StatefulWidget {
 class _PrimaryScreenState extends State<PrimaryScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    PokedexScreen(),
-    RegionsScreen(),
-    FavoritesScreen(),
-    ProfileScreen(),
+  // Navigator keys for each tab to maintain independent navigation stacks
+  final _pokedexNavigatorKey = GlobalKey<NavigatorState>();
+  final _regionsNavigatorKey = GlobalKey<NavigatorState>();
+  final _favoritesNavigatorKey = GlobalKey<NavigatorState>();
+  final _profileNavigatorKey = GlobalKey<NavigatorState>();
+
+  // Build a navigator for each tab
+  Widget _buildNavigator(GlobalKey<NavigatorState> navigatorKey, Widget screen) {
+    return Navigator(
+      key: navigatorKey,
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) => screen,
+        );
+      },
+    );
+  }
+
+  List<Widget> get _screens => [
+    _buildNavigator(_pokedexNavigatorKey, const PokedexScreen()),
+    _buildNavigator(_regionsNavigatorKey, const RegionsScreen()),
+    _buildNavigator(_favoritesNavigatorKey, const FavoritesScreen()),
+    _buildNavigator(_profileNavigatorKey, const ProfileScreen()),
   ];
 
   Widget _buildIcon(String assetPath, bool isSelected) {
