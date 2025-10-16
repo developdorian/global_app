@@ -1,5 +1,3 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -15,29 +13,67 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingTitle1 => 'All Pokémon in one place';
 
   @override
-  String get onboardingDescription1 =>
-      'Access to a wide list of Pokémon from all generations created by Nintendo';
+  String get onboardingDescription1 => 'Access to a wide list of Pokémon from all generations created by Nintendo';
 
   @override
   String get onboardingTitle2 => 'Keep your Pokédex updated';
 
   @override
-  String get onboardingDescription2 =>
-      'Register and save your profile, favorite Pokémon, settings and much more in the application';
+  String get onboardingDescription2 => 'Register and save your profile, favorite Pokémon, settings and much more in the application';
 
   @override
   String get errorTitle => 'Something went wrong...';
 
   @override
-  String get errorDescription =>
-      'We couldn\'t load the information at this moment. Verify your connection or try again later.';
+  String get errorDescription => 'We couldn\'t load the information at this moment. Verify your connection or try again later.';
 
   @override
   String get regionsTitle => 'Coming soon!';
 
   @override
-  String get regionsDescription =>
-      'We\'re working to bring you this section. Come back later to discover all the news.';
+  String get regionsDescription => 'We\'re working to bring you this section. Come back later to discover all the news.';
+
+  @override
+  String get favoritesTitle => 'No favorite Pokémon yet';
+
+  @override
+  String get favoritesDescription => 'Click on the heart icon of your favorite Pokémon and they will appear here.';
+
+  @override
+  String get filterTitle => 'Filter by your preferences';
+
+  @override
+  String get filterType => 'Type';
+
+  @override
+  String get filterDelete => 'Delete filter';
+
+  @override
+  String get filterResult => 'Found';
+
+  @override
+  String get filterResult2 => 'results';
+
+  @override
+  String get detailPokemonWeight => 'Weight';
+
+  @override
+  String get detailPokemonHeight => 'Height';
+
+  @override
+  String get detailPokemonCategory => 'Category';
+
+  @override
+  String get detailPokemonAbilities => 'Abilities';
+
+  @override
+  String get detailPokemonMoves => 'Moves';
+
+  @override
+  String get detailPokemonGender => 'Gender';
+
+  @override
+  String get detailPokemonWeakness => 'Weakness';
 
   @override
   String get tabbarPokedex => 'Pokédex';

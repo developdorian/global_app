@@ -21,7 +21,9 @@ samples, guidance on mobile development, and a full API reference.
 - La capa de presentación maneja los textos fijos desde un archivo centralizado, preparado para escalar a localización (i18n) con Flutter gen_l10n
 - Se hace uso de Windsurf para generar los archivos de localización
 - Se implementa un tema personalizado con colores y estilos propios (Se genera codigo haciendo uso de la AI Claude).
-- 
+- Generación de metodos utils para strings (Se genera codigo haciendo uso de la AI Claude).
+- Cuando el dispositivo se encuentra sin conexión, se muestra una pantalla de error con un botón para intentar de nuevo. Una vez que se recupera la conexión, se vuelve a cargar la pantalla de la Pokédex con la lista de pokemons.
+
 
 
 

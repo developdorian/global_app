@@ -62,8 +62,7 @@ import 'app_localizations_es.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,18 +82,17 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('es'),
+    Locale('es')
   ];
 
   /// No description provided for @title.
@@ -152,6 +149,90 @@ abstract class AppLocalizations {
   /// **'We\'re working to bring you this section. Come back later to discover all the news.'**
   String get regionsDescription;
 
+  /// No description provided for @favoritesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorite Pokémon yet'**
+  String get favoritesTitle;
+
+  /// No description provided for @favoritesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Click on the heart icon of your favorite Pokémon and they will appear here.'**
+  String get favoritesDescription;
+
+  /// No description provided for @filterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by your preferences'**
+  String get filterTitle;
+
+  /// No description provided for @filterType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get filterType;
+
+  /// No description provided for @filterDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete filter'**
+  String get filterDelete;
+
+  /// No description provided for @filterResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Found'**
+  String get filterResult;
+
+  /// No description provided for @filterResult2.
+  ///
+  /// In en, this message translates to:
+  /// **'results'**
+  String get filterResult2;
+
+  /// No description provided for @detailPokemonWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get detailPokemonWeight;
+
+  /// No description provided for @detailPokemonHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get detailPokemonHeight;
+
+  /// No description provided for @detailPokemonCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get detailPokemonCategory;
+
+  /// No description provided for @detailPokemonAbilities.
+  ///
+  /// In en, this message translates to:
+  /// **'Abilities'**
+  String get detailPokemonAbilities;
+
+  /// No description provided for @detailPokemonMoves.
+  ///
+  /// In en, this message translates to:
+  /// **'Moves'**
+  String get detailPokemonMoves;
+
+  /// No description provided for @detailPokemonGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get detailPokemonGender;
+
+  /// No description provided for @detailPokemonWeakness.
+  ///
+  /// In en, this message translates to:
+  /// **'Weakness'**
+  String get detailPokemonWeakness;
+
   /// No description provided for @tabbarPokedex.
   ///
   /// In en, this message translates to:
@@ -207,8 +288,7 @@ abstract class AppLocalizations {
   String get buttonCancel;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -217,26 +297,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'es':
-      return AppLocalizationsEs();
+    case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }

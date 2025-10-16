@@ -13,6 +13,23 @@
     "regionsTitle": "Coming soon!",
     "regionsDescription": "We're working to bring you this section. Come back later to discover all the news.",
     
+    "favoritesTitle": "No favorite Pokémon yet",
+    "favoritesDescription": "Click on the heart icon of your favorite Pokémon and they will appear here.",
+
+    "filterTitle": "Filter by your preferences",
+    "filterType": "Type",
+    "filterDelete": "Delete filter",
+    "filterResult": "Found",
+    "filterResult2": "results",
+
+    "detailPokemonWeight": "Weight",
+    "detailPokemonHeight": "Height",
+    "detailPokemonCategory": "Category",
+    "detailPokemonAbilities": "Abilities",
+    "detailPokemonMoves": "Moves",
+    "detailPokemonGender": "Gender",
+    "detailPokemonWeakness": "Weakness",    
+    
     "tabbarPokedex": "Pokédex",
     "tabbarFavorite": "Favorites",
     "tabbarProfile": "Profile",
