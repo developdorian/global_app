@@ -7,3 +7,4 @@ export 'package:global_app/features/pokedex/presentation/screens/regions_screen.
 export 'package:global_app/features/pokedex/presentation/screens/splash_screen.dart';
 export 'package:global_app/features/pokedex/presentation/screens/primary_screen.dart';
 export 'package:global_app/features/pokedex/presentation/screens/profile_screen.dart';
+export 'package:global_app/features/pokedex/presentation/screens/pokedex_error_screen.dart';

@@ -1,7 +1,7 @@
 class PokemonConstants {
   PokemonConstants._();
 
-  // Weaknesses of types
+  // Weaknesses of types (2x damage)
   static const Map<String, List<String>> typeWeaknesses = {
     'normal': ['fighting'],
     'fire': ['water', 'ground', 'rock'],
@@ -21,6 +21,50 @@ class PokemonConstants {
     'dark': ['fighting', 'bug', 'fairy'],
     'steel': ['fire', 'fighting', 'ground'],
     'fairy': ['poison', 'steel'],
+  };
+
+  // Resistances of types (0.5x damage)
+  static const Map<String, List<String>> typeResistances = {
+    'normal': [],
+    'fire': ['fire', 'grass', 'ice', 'bug', 'steel', 'fairy'],
+    'water': ['fire', 'water', 'ice', 'steel'],
+    'electric': ['electric', 'flying', 'steel'],
+    'grass': ['water', 'electric', 'grass', 'ground'],
+    'ice': ['ice'],
+    'fighting': ['bug', 'rock', 'dark'],
+    'poison': ['grass', 'fighting', 'poison', 'bug', 'fairy'],
+    'ground': ['poison', 'rock'],
+    'flying': ['grass', 'fighting', 'bug'],
+    'psychic': ['fighting', 'psychic'],
+    'bug': ['grass', 'fighting', 'ground'],
+    'rock': ['normal', 'fire', 'poison', 'flying'],
+    'ghost': ['poison', 'bug'],
+    'dragon': ['fire', 'water', 'electric', 'grass'],
+    'dark': ['ghost', 'dark'],
+    'steel': ['normal', 'grass', 'ice', 'flying', 'psychic', 'bug', 'rock', 'dragon', 'steel', 'fairy'],
+    'fairy': ['fighting', 'bug', 'dark'],
+  };
+
+  // Immunities of types (0x damage)
+  static const Map<String, List<String>> typeImmunities = {
+    'normal': ['ghost'],
+    'fire': [],
+    'water': [],
+    'electric': [],
+    'grass': [],
+    'ice': [],
+    'fighting': [],
+    'poison': [],
+    'ground': ['electric'],
+    'flying': ['ground'],
+    'psychic': [],
+    'bug': [],
+    'rock': [],
+    'ghost': ['normal', 'fighting'],
+    'dragon': [],
+    'dark': ['psychic'],
+    'steel': ['poison'],
+    'fairy': ['dragon'],
   };
   
   static const Map<String, String> abilityTranslations = {

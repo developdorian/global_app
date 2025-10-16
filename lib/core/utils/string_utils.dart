@@ -2,9 +2,9 @@ class StringUtils {
   
   StringUtils._();
 
-  /// Capitaliza la primera letra de un string y convierte el resto a minúsculas
+  /// Capitalize the first letter of a string and convert the rest to lowercase
   /// 
-  /// Ejemplo:
+  /// Example:
   /// ```dart
   /// StringUtils.capitalize('pepe'); // 'Pepe'
   /// StringUtils.capitalize('PEPE'); // 'Pepe'
@@ -15,9 +15,9 @@ class StringUtils {
     return text[0].toUpperCase() + text.substring(1).toLowerCase();
   }
 
-  /// Capitaliza solo la primera letra, manteniendo el resto sin cambios
+  /// Capitalize the first letter of a string, keeping the rest unchanged
   /// 
-  /// Ejemplo:
+  /// Example:
   /// ```dart
   /// StringUtils.capitalizeFirst('pepe'); // 'Pepe'
   /// StringUtils.capitalizeFirst('pepe GARCÍA'); // 'Pepe GARCÍA'
@@ -27,9 +27,9 @@ class StringUtils {
     return text[0].toUpperCase() + text.substring(1);
   }
 
-  /// Convierte un string a Title Case (cada palabra capitalizada)
+  /// Convert a string to Title Case (each word capitalized)
   /// 
-  /// Ejemplo:
+  /// Example:
   /// ```dart
   /// StringUtils.toTitleCase('pepe garcía lópez'); // 'Pepe García López'
   /// StringUtils.toTitleCase('hola mundo'); // 'Hola Mundo'
@@ -43,9 +43,9 @@ class StringUtils {
     }).join(' ');
   }
 
-  /// Verifica si un string está vacío o solo contiene espacios en blanco
+  /// Check if a string is null or empty
   /// 
-  /// Ejemplo:
+  /// Example:
   /// ```dart
   /// StringUtils.isNullOrEmpty(''); // true
   /// StringUtils.isNullOrEmpty('   '); // true
@@ -54,5 +54,17 @@ class StringUtils {
   static bool isNullOrEmpty(String? text) {
     return text == null || text.trim().isEmpty;
   }
+  
+  /// Formatea un número para que tenga al menos 3 dígitos, agregando ceros a la izquierda si es necesario
+  /// 
+  /// Ejemplo:
+  /// ```dart
+  /// StringUtils.formatNumber(1); // '001'
+  /// StringUtils.formatNumber(12); // '012'
+  /// StringUtils.formatNumber(123); // '123'
+  /// ```
+  static String formatNumber(int number) {
+    return number.toString().padLeft(3, '0');
+  } 
 
 }

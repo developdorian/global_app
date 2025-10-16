@@ -6,25 +6,53 @@ class PokemonTypeHelper {
   PokemonTypeHelper._(); 
 
   /// Calculates the combined weaknesses of one or more types
+  /// Returns only types that deal 2x or more damage (net weakness)
   static List<String> calculateWeaknesses(List<String> types) {
     if (types.isEmpty) return [];
 
-    final weaknesses = <String>{};
-    final resistances = <String>{};
-    final immunities = <String>{};
+    // Map to track damage multipliers for each attacking type
+    final damageMultipliers = <String, double>{};
 
-    // If only one type, it's easier
-    if (types.length == 1) {
-      return PokemonConstants.typeWeaknesses[types.first] ?? [];
+    // Initialize all possible types with 1x damage
+    const allTypes = [
+      'normal', 'fire', 'water', 'electric', 'grass', 'ice',
+      'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug',
+      'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'
+    ];
+
+    for (final attackType in allTypes) {
+      damageMultipliers[attackType] = 1.0;
     }
 
-    // For dual types, we need to calculate interactions
-    for (final type in types) {
-      final typeWeaknesses = PokemonConstants.typeWeaknesses[type] ?? [];
-      weaknesses.addAll(typeWeaknesses);
+    // Calculate damage multipliers for each defending type
+    for (final defendingType in types) {
+      // Apply weaknesses (2x damage)
+      final weaknesses = PokemonConstants.typeWeaknesses[defendingType] ?? [];
+      for (final weakness in weaknesses) {
+        damageMultipliers[weakness] = (damageMultipliers[weakness] ?? 1.0) * 2.0;
+      }
+
+      // Apply resistances (0.5x damage)
+      final resistances = PokemonConstants.typeResistances[defendingType] ?? [];
+      for (final resistance in resistances) {
+        damageMultipliers[resistance] = (damageMultipliers[resistance] ?? 1.0) * 0.5;
+      }
+
+      // Apply immunities (0x damage)
+      final immunities = PokemonConstants.typeImmunities[defendingType] ?? [];
+      for (final immunity in immunities) {
+        damageMultipliers[immunity] = 0.0;
+      }
     }
 
-    return weaknesses.toList()..sort();
+    // Filter only types that deal 2x or more damage (net weaknesses)
+    final weaknessTypes = damageMultipliers.entries
+        .where((entry) => entry.value >= 2.0)
+        .map((entry) => entry.key)
+        .toList()
+      ..sort();
+
+    return weaknessTypes;
   }
 
   /// Translates a type from English to Spanish (uses AppConstants centralization)
