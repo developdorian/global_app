@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:global_app/app/localization/l10n/app_localizations.dart';
 import 'package:global_app/app/theme/app_theme.dart';
 import 'package:global_app/app/theme/app_constants.dart';
 import 'package:global_app/features/pokedex/presentation/providers/search_filter_provider.dart';
@@ -33,6 +34,7 @@ class _SearchBarWidgetState extends ConsumerState<SearchBarWidget> {
   @override
   Widget build(BuildContext context) {
     final filterState = ref.watch(searchFilterProvider);
+    final l10n = AppLocalizations.of(context)!;
     
     // Build display text for selected filters
     String displayText = '';
@@ -72,7 +74,7 @@ class _SearchBarWidgetState extends ConsumerState<SearchBarWidget> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          displayText.isEmpty ? 'Procurar Pókemon...' : displayText,
+                          displayText.isEmpty ? l10n.filterSearchBar : displayText,
                           style: AppTheme.textTheme.bodyLarge!.copyWith(
                             color: displayText.isEmpty ? Colors.grey[400] : AppColors.textPrimary,
                           ),
