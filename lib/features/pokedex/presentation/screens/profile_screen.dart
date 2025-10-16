@@ -14,12 +14,7 @@ class ProfileScreen extends ConsumerWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          l10n.tabbarProfile,
-          style: AppTheme.textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: Text(l10n.tabbarProfile),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,

@@ -3,6 +3,8 @@ import 'package:global_app/features/pokedex/data/models/pokemon_model.dart';
 import 'package:global_app/features/pokedex/data/models/pokemon_detail_model.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_entity.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_detail_entity.dart';
+import 'package:global_app/features/pokedex/domain/entities/pokemon_species_entity.dart';
+import 'package:global_app/features/pokedex/domain/entities/ability_detail_entity.dart';
 import 'package:global_app/features/pokedex/domain/repositories/pokemon_repository.dart';
 
 class PokemonRepositoryImpl implements PokemonRepository {
@@ -20,5 +22,17 @@ class PokemonRepositoryImpl implements PokemonRepository {
   Future<PokemonDetailEntity> getPokemonDetail(String name) async {
     final model = await remoteDataSource.fetchPokemonDetail(name);
     return model.toEntity();
+  }
+
+  @override
+  Future<PokemonSpeciesEntity> getPokemonSpecies(int id, String languageCode) async {
+    final model = await remoteDataSource.fetchPokemonSpecies(id);
+    return model.toEntity(languageCode);
+  }
+
+  @override
+  Future<AbilityDetailEntity> getAbilityDetail(String abilityName, String languageCode) async {
+    final model = await remoteDataSource.fetchAbilityDetail(abilityName);
+    return model.toEntity(languageCode);
   }
 }

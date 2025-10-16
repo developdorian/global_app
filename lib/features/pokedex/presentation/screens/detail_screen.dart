@@ -7,6 +7,8 @@ import 'package:global_app/app/theme/app_theme.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_detail_entity.dart';
 import 'package:global_app/features/pokedex/presentation/widgets/elements_widget.dart';
 import 'package:global_app/features/pokedex/presentation/providers/favorites_provider.dart';
+import 'package:global_app/features/pokedex/presentation/providers/pokemon_species_provider.dart';
+import 'package:global_app/features/pokedex/presentation/providers/ability_detail_provider.dart';
 import 'package:global_app/core/utils/string_utils.dart';
 import 'package:global_app/core/utils/pokemon_type_helper.dart';
 
@@ -140,9 +142,33 @@ class DetailScreen extends ConsumerWidget {
                     }).toList(),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    'Tiene una semilla de planta en la espalda desde que nace. La semilla crece lentamente.',
-                    style: AppTheme.textTheme.bodyMedium,
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final speciesAsync = ref.watch(pokemonSpeciesProvider(pokemonDetail.id));
+                      return speciesAsync.when(
+                        data: (species) => Text(
+                          species.flavorText,
+                          style: AppTheme.textTheme.bodyMedium,
+                        ),
+                        loading: () => const SizedBox(
+                          height: 40,
+                          child: Center(
+                            child: SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            ),
+                          ),
+                        ),
+                        error: (error, stack) => Text(
+                          'Error loading description',
+                          style: AppTheme.textTheme.bodyMedium?.copyWith(
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(height: 16),
                   const Divider(
@@ -166,20 +192,62 @@ class DetailScreen extends ConsumerWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      _buildStructureUi(
-                        l10n.detailPokemonCategory.toUpperCase(),
-                        "CATEGORIA",
-                        AppConstants.categoryLogo,
-                      ),
-                      const SizedBox(width: 24),
-                      _buildStructureUi(
-                        l10n.detailPokemonAbilities.toUpperCase(),
-                        "HABILIDADES",
-                        AppConstants.pokeballLogo,
-                      ),
-                    ],
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final speciesAsync = ref.watch(pokemonSpeciesProvider(pokemonDetail.id));
+                      return Row(
+                        children: [
+                          speciesAsync.when(
+                            data: (species) => _buildStructureUi(
+                              l10n.detailPokemonCategory.toUpperCase(),
+                              species.category,
+                              AppConstants.categoryLogo,
+                            ),
+                            loading: () => _buildStructureUi(
+                              l10n.detailPokemonCategory.toUpperCase(),
+                              "...",
+                              AppConstants.categoryLogo,
+                            ),
+                            error: (error, stack) => _buildStructureUi(
+                              l10n.detailPokemonCategory.toUpperCase(),
+                              "N/A",
+                              AppConstants.categoryLogo,
+                            ),
+                          ),
+                          const SizedBox(width: 24),
+                          pokemonDetail.abilities.isNotEmpty
+                              ? Consumer(
+                                  builder: (context, ref, child) {
+                                    final abilityAsync = ref.watch(
+                                      abilityDetailProvider(pokemonDetail.abilities.first.name),
+                                    );
+                                    return abilityAsync.when(
+                                      data: (ability) => _buildStructureUi(
+                                        l10n.detailPokemonAbilities.toUpperCase(),
+                                        ability.localizedName,
+                                        AppConstants.pokeballLogo,
+                                      ),
+                                      loading: () => _buildStructureUi(
+                                        l10n.detailPokemonAbilities.toUpperCase(),
+                                        "...",
+                                        AppConstants.pokeballLogo,
+                                      ),
+                                      error: (error, stack) => _buildStructureUi(
+                                        l10n.detailPokemonAbilities.toUpperCase(),
+                                        StringUtils.capitalize(pokemonDetail.abilities.first.name),
+                                        AppConstants.pokeballLogo,
+                                      ),
+                                    );
+                                  },
+                                )
+                              : _buildStructureUi(
+                                  l10n.detailPokemonAbilities.toUpperCase(),
+                                  "N/A",
+                                  AppConstants.pokeballLogo,
+                                ),
+                        ],
+                      );
+                    },
                   ),
                   const SizedBox(height: 16),
                   Text(l10n.detailPokemonWeakness, style: AppTheme.textTheme.titleLarge), 

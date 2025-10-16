@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:global_app/features/pokedex/data/models/pokemon_model.dart';
 import 'package:global_app/features/pokedex/data/models/pokemon_detail_model.dart';
+import 'package:global_app/features/pokedex/data/models/pokemon_species_model.dart';
+import 'package:global_app/features/pokedex/data/models/ability_detail_model.dart';
 
 class PokemonRemoteDataSource {
   final Dio dio;
@@ -26,5 +28,21 @@ class PokemonRemoteDataSource {
     );
 
     return PokemonDetailModel.fromJson(response.data);
+  }
+
+  Future<PokemonSpeciesModel> fetchPokemonSpecies(int id) async {
+    final response = await dio.get(
+      'https://pokeapi.co/api/v2/pokemon-species/$id',
+    );
+
+    return PokemonSpeciesModel.fromJson(response.data);
+  }
+
+  Future<AbilityDetailModel> fetchAbilityDetail(String abilityName) async {
+    final response = await dio.get(
+      'https://pokeapi.co/api/v2/ability/$abilityName',
+    );
+
+    return AbilityDetailModel.fromJson(response.data);
   }
 }
