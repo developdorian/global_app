@@ -15,7 +15,7 @@ class ElementWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 4),
+      padding: EdgeInsets.only(left: 4, right: 8),
       height: 24,
       decoration: BoxDecoration(
         color: color,
