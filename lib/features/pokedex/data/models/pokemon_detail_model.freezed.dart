@@ -744,7 +744,7 @@ class __$$PokemonAbilityModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PokemonAbilityModelImpl implements _PokemonAbilityModel {
   const _$PokemonAbilityModelImpl(
-      {@JsonKey(name: 'is_hidden') required this.isHidden,
+      {@JsonKey(name: 'is_hidden') this.isHidden = false,
       required this.ability});
 
   factory _$PokemonAbilityModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -794,7 +794,7 @@ class _$PokemonAbilityModelImpl implements _PokemonAbilityModel {
 
 abstract class _PokemonAbilityModel implements PokemonAbilityModel {
   const factory _PokemonAbilityModel(
-      {@JsonKey(name: 'is_hidden') required final bool isHidden,
+      {@JsonKey(name: 'is_hidden') final bool isHidden,
       required final AbilityInfoModel ability}) = _$PokemonAbilityModelImpl;
 
   factory _PokemonAbilityModel.fromJson(Map<String, dynamic> json) =

@@ -6,34 +6,23 @@ import 'package:global_app/app/theme/app_theme.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_entity.dart';
 import 'package:global_app/features/pokedex/presentation/widgets/elements_widget.dart';
 import 'package:global_app/features/pokedex/presentation/providers/pokemon_detail_provider.dart';
+import 'package:global_app/features/pokedex/presentation/providers/favorites_provider.dart';
 import 'package:global_app/features/pokedex/presentation/screens/detail_screen.dart';
 import 'package:global_app/core/utils/string_utils.dart';
 
-class CustomCardWidget extends ConsumerStatefulWidget {
+class CustomCardWidget extends ConsumerWidget {
   const CustomCardWidget({super.key, required this.pokemon});
 
   final PokemonEntity pokemon;
 
-  @override 
-  ConsumerState<CustomCardWidget> createState() => _CustomCardWidgetState();
-}
-
-class _CustomCardWidgetState extends ConsumerState<CustomCardWidget> {
-  late bool _isFav;
-
   @override
-  void initState() {
-    super.initState();
-    _isFav = false;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final name = widget.pokemon.name;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final name = pokemon.name;
     final pokemonDetailAsync = ref.watch(pokemonDetailProvider(name));
 
     return pokemonDetailAsync.when(
       data: (pokemonDetail) {
+        final isFavorite = ref.watch(isFavoritePokemonProvider(pokemonDetail.id));
         final id = pokemonDetail.id;
         final imageUrl =
             'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png';
@@ -142,12 +131,13 @@ class _CustomCardWidgetState extends ConsumerState<CustomCardWidget> {
                     right: 8,
                     child: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          _isFav = !_isFav;
-                        });
+                        ref.read(favoritesNotifierProvider.notifier).toggleFavorite(
+                          pokemonDetail,
+                          isFavorite,
+                        );
                       },
                       child: SvgPicture.asset(
-                        _isFav
+                        isFavorite
                             ? AppConstants.heartRedFavLogo
                             : AppConstants.heartBasicFavLogo,
                         width: 32,

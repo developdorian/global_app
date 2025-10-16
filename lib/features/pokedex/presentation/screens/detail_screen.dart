@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:global_app/app/localization/l10n/app_localizations.dart';
 import 'package:global_app/app/theme/app_constants.dart';
 import 'package:global_app/app/theme/app_theme.dart';
 import 'package:global_app/features/pokedex/domain/entities/pokemon_detail_entity.dart';
 import 'package:global_app/features/pokedex/presentation/widgets/elements_widget.dart';
+import 'package:global_app/features/pokedex/presentation/providers/favorites_provider.dart';
 import 'package:global_app/core/utils/string_utils.dart';
 import 'package:global_app/core/utils/pokemon_type_helper.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends ConsumerWidget {
   const DetailScreen({
     super.key,
     required this.name,
@@ -19,7 +21,7 @@ class DetailScreen extends StatelessWidget {
   final PokemonDetailEntity pokemonDetail;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final id = pokemonDetail.id;
     final imageUrl =
@@ -33,10 +35,30 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: typeColor,
+        
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        actions: [
+          Consumer(
+            builder: (context, ref, child) {
+              final isFavorite = ref.watch(isFavoritePokemonProvider(pokemonDetail.id));
+              return IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  ref.read(favoritesNotifierProvider.notifier).toggleFavorite(
+                    pokemonDetail,
+                    isFavorite,
+                  );
+                },
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

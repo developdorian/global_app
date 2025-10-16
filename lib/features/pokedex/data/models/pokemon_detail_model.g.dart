@@ -59,7 +59,7 @@ Map<String, dynamic> _$$TypeInfoModelImplToJson(_$TypeInfoModelImpl instance) =>
 _$PokemonAbilityModelImpl _$$PokemonAbilityModelImplFromJson(
         Map<String, dynamic> json) =>
     _$PokemonAbilityModelImpl(
-      isHidden: json['is_hidden'] as bool,
+      isHidden: json['is_hidden'] as bool? ?? false,
       ability:
           AbilityInfoModel.fromJson(json['ability'] as Map<String, dynamic>),
     );

@@ -43,7 +43,7 @@ class TypeInfoModel with _$TypeInfoModel {
 @freezed
 class PokemonAbilityModel with _$PokemonAbilityModel {
   const factory PokemonAbilityModel({
-    required bool isHidden,
+    @Default(false) @JsonKey(name: 'is_hidden') bool isHidden,
     required AbilityInfoModel ability,
   }) = _PokemonAbilityModel;
 
