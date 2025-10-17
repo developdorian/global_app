@@ -9,7 +9,7 @@ class PokemonRemoteDataSource {
 
   PokemonRemoteDataSource(this.dio);
 
-  Future<List<PokemonModel>> fetchPokemons({int offset = 0, int limit = 20}) async {
+  Future<List<PokemonModel>> fetchPokemons({int offset = 0, int limit = 150}) async {
     final response = await dio.get(
       'https://pokeapi.co/api/v2/pokemon',
       queryParameters: {'offset': offset, 'limit': limit},
